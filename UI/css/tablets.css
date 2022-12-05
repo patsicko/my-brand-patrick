@@ -1,0 +1,18 @@
+/* // Medium devices (tablets, 480px and up) */
+@media (min-width: 480px) { 
+    
+    .header{
+        display: none;
+        width: 100%;
+       
+        
+    }
+    
+    .navigations{
+        display: none;
+        
+    }
+    
+
+  
+}
