@@ -147,17 +147,22 @@ box-shadow: 2px 2px 4px  #918f8f,-2px -2px 4px white;
 
 
 .about{
-    width: 100vw;
-    margin-top: 120px;
+    width: 80vw;
+    margin-top: 70px;
+    margin-left: 15%;
+    
+   
 
 }
 .about-content{
-    width: 80%;
+    width: 90%;
     margin: auto;
     box-shadow: 2px 2px 4px  #918f8f,-2px -2px 4px white;
     height: 500px;
-    margin-top: 30px;
+    
     padding: 30px;
+    padding-top: 70px;
+    margin-top: 60px;
     text-align: left;
     font-family: sans-serif;
 }
@@ -180,7 +185,7 @@ box-shadow: 2px 2px 4px  #918f8f,-2px -2px 4px white;
 
 .skills-header{
     width: 80%;
-    margin: auto;
+    margin-left: 2%;
 }
 
 .skills-content{
@@ -205,11 +210,20 @@ box-shadow: 2px 2px 4px  #918f8f,-2px -2px 4px white;
     
 }
 
+/* .projects{
+    margin-top: -80px;
+} */
+
 .project-contents{
     width: 80%;
     margin: auto;
-    box-shadow: 2px 2px 4px  #918f8f inset,-2px -2px 4px white inset; 
-    padding: 60px;
+    box-shadow: 2px 2px 4px  #918f8f inset,-2px -2px 4px white inset;
+    border-radius: 20px; 
+    /* padding: 60px; */
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 30px;
+    padding-bottom: 30px;
    
 }
 .project-image{
@@ -220,6 +234,7 @@ box-shadow: 2px 2px 4px  #918f8f,-2px -2px 4px white;
 }
 .project-card{
     box-shadow: 2px 2px 4px  #918f8f,-2px -2px 4px white;
+    border-radius: 10px;
   
 }
 
@@ -250,6 +265,50 @@ h1{
 
 
 
+
+
+
+.contact-card{
+    height: 700px;
+    width: 80vw;
+    margin: auto;
+    background-color: rgba(205, 216, 137,0.25);
+    box-shadow: 2px 2px 4px  #918f8f,-2px -2px 4px white;
+    border-radius: 10px;
+
+    
+}
+
+textarea{
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    padding: 30px;
+    font-size: 1.3rem;
+    width: 85%;
+    height: 450px;
+}
+
+.contact-form{
+    padding: 30px;
+}
+.contact-form input[type=text],.contact-form input[type=email]{
+    width: 30%;
+    height: 50px;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    padding-left: 4px;
+}
+label{
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: sans-serif;
+}
+
+.contact-form input[type=text]::placeholder,.contact-form input[type=email]::placeholder{
+    font-size: 1.2rem;
+}
 
 
 

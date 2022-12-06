@@ -9,7 +9,6 @@
     }
     
 
-
 .navigations{
     display: none;
     width: 100vw;
@@ -65,7 +64,7 @@
 
  .project-bar{
     box-shadow: 2px 2px 4px  #918f8f,-2px -2px 4px white;
-  
+    border-radius: 10px;
     width: 270px;
     margin: -20px;
     margin-top: 30px;
