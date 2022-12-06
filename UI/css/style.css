@@ -187,7 +187,7 @@ box-shadow: 2px 2px 4px  #918f8f,-2px -2px 4px white;
     width: 80%;
      margin: auto;
      justify-items: center;
-    margin-top: 70px;
+    margin-top: 50px;
     
 }
 
@@ -204,9 +204,49 @@ box-shadow: 2px 2px 4px  #918f8f,-2px -2px 4px white;
    
     
 }
- 
+
+.project-contents{
+    width: 80%;
+    margin: auto;
+    box-shadow: 2px 2px 4px  #918f8f inset,-2px -2px 4px white inset; 
+    padding: 60px;
+   
+}
+.project-image{
+   
+    padding: 20px;
+    
+   
+}
+.project-card{
+    box-shadow: 2px 2px 4px  #918f8f,-2px -2px 4px white;
+  
+}
 
 
+.project-btn{
+   
+    padding-top: 20px;
+}
+
+.project-language{
+    display: flex;
+    gap: 20px;
+}
+.project-title{
+    font-size: 1.7rem;
+    font-weight: 900;
+    font-family: sans-serif;
+    text-align: center;
+    padding: 13px;
+   
+}
+
+h1{
+    font-family: sans-serif;
+    margin-left:10%;
+    padding-bottom: 20px;
+}
 
 
 

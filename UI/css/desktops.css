@@ -43,5 +43,33 @@
 
 
 
+ .project-bar{
+    box-shadow: 2px 2px 4px  #918f8f,-2px -2px 4px white;
+  
+    width: 50%;
+    margin: auto;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    padding: 5px;
+} 
+
+.project-title-mobile{
+    display: none;
+}
+
+.project-card{
+    display: block;
+    margin-top: 40px;
+}
+
+
+
 
 }
+
+
+
+
+
+
