@@ -82,10 +82,16 @@
 
 
 
+.admin-profile img{
+    display: none;
+    border-radius: 50%;
+}
 
 
-
-
+.logout button{
+    margin-left: 65%;
+    width: 85px;
+}
 
 
 
