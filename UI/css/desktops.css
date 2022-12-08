@@ -75,6 +75,18 @@
     width: 85px;
 }
 
+.blog-table{
+   
+    border-radius: 5px;
+    width: 60%;
+    margin-left: 0;
+    padding-left: 40px;
+    /* min-height: 100px ; */
+    height: 350px;
+    background-color: #ffffff;
+    
+ }
+
 
 
 }
