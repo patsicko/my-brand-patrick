@@ -130,7 +130,7 @@ button{
 
 border-radius: 50%;
 
-box-shadow: 2px 2px 4px  #918f8f ;
+box-shadow: 2px 2px 4px  #918f8f,-2px -2px 4px white;
 }
 
 .welcome{
@@ -140,7 +140,7 @@ box-shadow: 2px 2px 4px  #918f8f ;
     padding-top: 15%;
     font-family: sans-serif;
      
-    box-shadow: 1px 1px 4px  #918f8f inset;
+    box-shadow: 2px 2px 4px  #918f8f inset,-2px -2px 4px white inset;
    
     margin: 40px;
 }
@@ -154,27 +154,54 @@ box-shadow: 2px 2px 4px  #918f8f ;
 .about-content{
     width: 80%;
     margin: auto;
-    box-shadow: 1px 1px 4px  #918f8f;
+    box-shadow: 2px 2px 4px  #918f8f,-2px -2px 4px white;
     height: 500px;
     margin-top: 30px;
     padding: 30px;
     text-align: left;
+    font-family: sans-serif;
 }
 .about-text{
     font-size: 2rem;
+    
 }
 
 .languages,.frameworks,.tools{
     background-color: #DCE2B5;
     height: 420px;
-    width: 350px;
+    width: 280px;
+    padding-left: 30px;
+    padding-top: 20px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px #68756A,-2px -2px 4px white;
+  
 
 }
 
-.skills-content{
-    width: 90%;
+.skills-header{
+    width: 80%;
     margin: auto;
-    margin-left: 10%;
+}
+
+.skills-content{
+    width: 80%;
+     margin: auto;
+     justify-items: center;
+    margin-top: 70px;
+    
+}
+
+.languages-head,.frameworks-head,.tools-head{
+  font-family: sans-serif;
+}
+
+.languages-body,.frameworks-body,.tools-body{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-row-gap: 30px;
+    margin-top: 40px;
+    width: 80%;
+   
     
 }
  
