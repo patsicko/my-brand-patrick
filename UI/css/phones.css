@@ -75,6 +75,19 @@
    
 } 
 
+.project-btn button{
+    
+    margin-left: 0px;
+    width: 90px;
+    margin-left: 5px;
+    height: 30px;
+    
+}
+.project-btn{
+    
+    width: 150px;
+}
+
 .project-card{
     display: none;
 }
