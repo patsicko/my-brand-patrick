@@ -7,6 +7,7 @@
         grid-template-columns: 1fr 1fr;
         width: 100%;
         
+        
       
     }
 
@@ -30,6 +31,49 @@
             grid-template-columns: repeat(3,1fr);
           }
         
+       
+          
+
+
+          .login-form input[type=text],.login-form input[type=password]{
+            width: 50%;
+            height: 50px;
+            outline: none;
+            border-radius: 5px;
+           
+            padding-left: 4px;
+        }
         
+        .login-form input[type=text]::placeholder,.login-form input[type=password]::placeholder{
+            font-size: 1.2rem;
+        }
+        
+        .login-form button{
+            width: 120px;
+            height: 50px;
+            border-radius: 8px;
+            margin-left: 30px0;
+           
+            
+        }
+
+
+        .login-form{
+            width: 50%;
+            background-color: #ffffff;
+            margin-left: 0;
+            padding: 50px;
+            
+            padding-top: 70px;
+            border-radius: 20px;
+            margin-bottom: 50px;
+            height: 420px;
+            
+        }
+
+
+
+        
+         
 
 }
