@@ -44,6 +44,54 @@ display: none;
        
             font-size: xx-large;
         }
+
+
+
+
+
+
+        .admin-right{
+            display: block;
+            width: 70%;
+           
+        }
+        
+
+        .admin-sidebar{
+  
+            height: 1000px;
+            width: 25%;
+            background-color: #68756A;
+            margin-top: 0;
+            margin-right: 40px;
+            border-radius: 8px;
+              
+            
+        }
+
+
+        .admin-header-right{
+   
+            display: flex;
+            padding-top: 25px;
+            gap: 20px;
+            padding-left: 75%;
+         }
+
+       
+
+          .blog{
+ 
+            height: 270px;
+            width: 80%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 2.6fr;
+            
+        } 
+
+
+
     
      }
     

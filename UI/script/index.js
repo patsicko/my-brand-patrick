@@ -16,3 +16,5 @@ navMobileX.addEventListener('click',e=>{
     navMobileHeader.className=navMobileHeader.className.replace('hide-navMobileHeader','nav-mobile-header')
     navMobileBody.className=navMobileBody.className.replace('show-navMobileBody','nav-mobile-body')
 })
+
+
