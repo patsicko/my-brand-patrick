@@ -5,6 +5,9 @@ let fname=document.getElementById("fname");
 let lname=document.getElementById("lname");
 let email=document.getElementById('email')
 let password=document.getElementById("password");
+let pwd=document.getElementById("user-password").value;
+
+console.log(password);
 let form=document.querySelector("form");
 
 
@@ -93,17 +96,12 @@ if(!password.value.match(pass)){
 
 
 
-
-
-
-
-
 const button=document.getElementById('btn-signup')
 console.log(button)
 
 button.addEventListener("click",(event)=>{
-    console.log('clicked')
-    event.preventDefault();
+  
+event.preventDefault();
 validateInput();
 
 formData()
@@ -113,11 +111,16 @@ formData()
 
 const formData=()=>{
 
-    username=lname.value;
-    const userPassword=password.value;
+   const username=lname.value;
+   const userPwd=pwd;
 
     localStorage.setItem('username',username);
-    localStorage.setItem('password',password)
+    localStorage.setItem('password',userPwd);
 
+    const data={
+        username,
+        password
+    }
+console.log(data)
 
 }
