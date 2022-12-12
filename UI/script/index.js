@@ -18,3 +18,9 @@ navMobileX.addEventListener('click',e=>{
 })
 
 
+
+
+
+
+
+

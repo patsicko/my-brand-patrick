@@ -414,6 +414,11 @@ font-family: sans-serif;
 }
 
 
+.login-form input[type=text],.login-form input[type=password]{
+    border: 1px solid black;
+}
+
+
 
 
 
