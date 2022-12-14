@@ -6,60 +6,71 @@ const button=document.getElementById('btn-login');
 const usernameError=document.querySelector('.username-error');
 const passwordError=document.querySelector('.password-error');
 
-const validName=localStorage.getItem('username');
-const validPassword=localStorage.getItem('password');
+const validAddress=JSON.parse(localStorage.getItem('userAddress'));
 
+
+
+
+const validUsername=validAddress.username;
+console.log(validUsername)
+const validPassword=validAddress.userPassword;
+console.log(validPassword)
 
 console.log(button);
 
 
 const validateInputs=()=>{
 
-// if(username!==validName){
+if(username.value!=validUsername){
   
-//     usernameError.innerHTML='Invalid username';
-//     usernameError.style.color='red'
-// }else{
-//     usernameError.innerHTML='';
-//     usernameError.style.color='black'
-// }
-
-
-// if(password!==validPassword){
- 
-//     passwordError.innerHTML='Invalid password';
-//     passwordError.style.color='red'
-// }else{
-//     passwordError.innerHTML='';
-    
-
-// }
-
-
-if(username.value.trim()==''){
-    usernameError.innerHTML='Username is required';
+     usernameError.innerHTML='Username is not valid';
     username.style.borderColor = "#FF0000";
     usernameError.style.color='red'
 }else{
     username.style.borderColor = "#228B22";
-    usernameError.innerText=''
+     usernameError.innerText=''
+   
 }
 
 
-
-
-const pass=  /^[A-Za-z]\w{6}$/;
-
-if(!password.value.match(pass)){
+if(password.value!=validPassword){
+ 
     password.style.borderColor = "#FF0000";
     passwordError.style.color='red'
     passwordError.innerText='Please put a valid password'
 }else{
-    password.style.borderColor = "#228B22";
+     password.style.borderColor = "#228B22";
     passwordError.innerText=''
-   
+    
 
 }
+
+
+
+// if(username.value.trim()==''){
+//     usernameError.innerHTML='Username is required';
+//     username.style.borderColor = "#FF0000";
+//     usernameError.style.color='red'
+// }else{
+//     username.style.borderColor = "#228B22";
+//     usernameError.innerText=''
+// }
+
+
+
+
+// const pass=  /^[A-Za-z]\w{6}$/;
+
+// if(!password.value.match(pass)){
+//     password.style.borderColor = "#FF0000";
+//     passwordError.style.color='red'
+//     passwordError.innerText='Please put a valid password'
+// }else{
+//     password.style.borderColor = "#228B22";
+//     passwordError.innerText=''
+   
+
+// }
 
 
 
@@ -70,5 +81,11 @@ if(!password.value.match(pass)){
 button.addEventListener('click',e=>{
     e.preventDefault();
 
-    validateInputs()
+    validateInputs();
+    if(username.value==validUsername && password.value==validPassword ){
+        window.open('/admin.html')
+    }
+
+   
 })
+

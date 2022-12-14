@@ -499,15 +499,18 @@
                     <h1>I WOULD LIKE TO HEAR FROM YOU</h1>
                 
                   <div class="contact-card">
-                      <form class="contact-form" >
-                          <label for="names">Names</label> &nbsp;<input type="text"  name="names" id="names" placeholder="names"> <br> <br>
+                      <form class="contact-form" id="contact-form" >
+                          <label for="names">Names</label> &nbsp;<input type="text"  name="names" id="contact-names" placeholder="names"> <br> <br>
+                          <small id="names-error">error message</small> <br> <br>
                 
-                          <label for="email">email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" name="email" id="email" placeholder="email"> <br> <br>
-                          <textarea name="" id="mytextarea"  placeholder="#"> Your message...
-                
+                          <label for="email">email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" name="contact-email" id="contact-email" placeholder="email"> <br> <br>
+                          <small id="email-error">error message</small> <br> <br>
+                          <textarea name="" id="mytextarea"  placeholder="#" maxlength="12" minlength="5">
+
+
                           </textarea> <br> <br>
-                
-                          <button>SUBMIT</button>
+                         <small id="text-error">error message</small> <br> <br>
+                          <button type="submit">SUBMIT</button>
                       </form>
                   </div>
                 

@@ -5,6 +5,7 @@ small{
     color: red;
     font-size: 0.8rem;
     font-family: sans-serif;
+    margin-left: 120px;
 }
 
 .signup-form input[type=text],.signup-form input[type=email],.signup-form input[type=password]{

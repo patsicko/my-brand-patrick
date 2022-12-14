@@ -539,3 +539,10 @@ span{
     box-shadow: 2px 2px 4px black, -2px -2px 4px white;
 }
 
+
+#names-error,#email-error,#text-error{
+    margin-left: 70px;
+    color: red;
+    visibility: hidden;
+    font-size: 1rem;
+}
