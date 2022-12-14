@@ -5,4 +5,4 @@ const userMessage=JSON.parse(localStorage.getItem('userMessage'));
 
 console.log(userMessage.message);
 
-notif.innerHTML+=userMessage;
+notif.innerHTML+=userMessage?.message;
