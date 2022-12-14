@@ -4,8 +4,8 @@ console.log('signup')
 let fname=document.getElementById("fname");
 let lname=document.getElementById("lname");
 let email=document.getElementById('email')
-let password=document.getElementById("password");
-let pwd=document.getElementById("user-password").value;
+let password=document.getElementById("user-password");
+// let pwd=document.getElementById("user-password").value;
 
 console.log(password);
 let form=document.querySelector("form");
@@ -57,14 +57,20 @@ if(!email.value.match(validRegex)){
     const parent=email.parentElement;
     const messageElement=parent.querySelector('small');
     messageElement.style.visibility='visible';
-    messageElement.innerText='Please put a valid email'
+    messageElement.innerText='Please put a valid email';
+  
 
  
 }else{
+  
     email.style.borderColor = "#228B22";
     const parent=email.parentElement;
     const messageElement=parent.querySelector('small');
     messageElement.style.visibility="hidden";
+    
+  
+  
+    
     
 }
 
@@ -72,25 +78,27 @@ if(!email.value.match(validRegex)){
 // password validation
 
 
-const pass=  /^[A-Za-z]\w{6}$/;
+const pass=  /^[A-Za-z0-9]\w{6,}$/;
 
 if(!password.value.match(pass)){
     password.style.borderColor = "#FF0000";
     const parent=password.parentElement;
     const messageElement=parent.querySelector('small');
     messageElement.style.visibility='visible';
-    messageElement.innerText='Please put a valid password'
+    messageElement.innerText='Please put a valid password';
+    
 }else{
     password.style.borderColor = "#228B22";
     const parent=password.parentElement;
     const messageElement=parent.querySelector('small');
     messageElement.style.visibility="hidden";
+  
+    
 }
 
 
-
-
 }
+
 
 
 
@@ -109,18 +117,24 @@ formData()
 });
 
 
+
 const formData=()=>{
 
    const username=lname.value;
-   const userPwd=pwd;
+   const userPassword=password.value;
 
-    localStorage.setItem('username',username);
-    localStorage.setItem('password',userPwd);
-
-    const data={
-        username,
-        password
-    }
-console.log(data)
-
+   const data={
+    username,
+    userPassword
 }
+
+
+
+    localStorage.setItem('userAddress',JSON.stringify(data));
+   
+
+   
+console.log(data)
+document.getElementById('signup-form').reset();
+}
+
