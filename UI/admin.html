@@ -109,6 +109,10 @@
                             
                             <div class="blog-section" id="blog-section"><h1>BLOGS</h1> </div>
 
+
+
+
+
                             <div class=" blog  blog1" id="blog">
                                 <div class="blog-image">
                                     <img src="/assets/images/blog-image.jpg" width="380px" height="270px" alt="">
@@ -299,24 +303,36 @@
                         
                            </div>
                        
+
+
+
+
+
+
+
+
+
+                           
            
                              <br> <br> <br>
            
                       
-                            <form class="admin-blog-form"  onsubmit=" event.preventDefault() ; submitForm()">
+                            <form class="admin-blog-form">
                                 <h1 class="create-blog">CREATE A BLOG</h1>
                 
                             
                 
                             <form-group><label for="">Blog title</label> &nbsp; &nbsp; &nbsp; &nbsp;  <input  type="text" name="code" placeholder="Blog title" id="title"></form-group> <br> <br>
                             <form-group><label for=""> Blog author</label>  &nbsp; <input type="text" name="name" placeholder="Blog author" id="author"></form-group> <br> <br>
+                            <form-group><label for=""> Blog image</label>  &nbsp; <input type="file" id="blog-img" placeholder="upload image"  name="blog-img"></form-group> <br> <br>
+
                 
-                            <textarea name="" id="mytextarea" cols="30" rows="10" placeholder="#">
+                            <textarea name="" id="textarea" cols="30" rows="10" placeholder="#">
                                 
                             </textarea>
                             <br>
                             
-                            <button type="submit">CREATE</button>
+                            <button type="submit" id="create-blog">CREATE</button>
                             
                         </form>
 

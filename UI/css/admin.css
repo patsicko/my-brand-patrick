@@ -174,3 +174,7 @@ background-color: #c3d8c7;
     font-weight: 900;
     cursor: pointer;
 }
+
+.admin-sidebar{
+    height: 100vh;
+}
