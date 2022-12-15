@@ -176,7 +176,7 @@ tr td{
 
 .admin-sidebar{
   
-    height: 600px;
+    /* height: 100vh; */
     width: 100%;
     background-color: #68756A;
     margin-top: 0;

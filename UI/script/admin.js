@@ -7,37 +7,43 @@ const author=document.getElementById('author');
 const blogImage=document.getElementById('blog-img');
 const createButton=document.getElementById('create-blog');
 const textarea=document.getElementById('textarea')
-
-
+const allBlogs=[];
 createButton.addEventListener('click',e=>{
     e.preventDefault();
     
     const blogTemp = tinymce.get('textarea').save();
 
     const blogData={
-        title:title.value,
-        author:author.value,
-        blogImage:blogImage.value,
-        blogTemp
-
+        "title":title.value,
+        "author":author.value,
+        "blogImage":blogImage.value,
+        "blogTemp": blogTemp,
     }
-    console.log(blogData);
-    console.log(addBlog()+'hello')
-
-   addBlog();
-
-
+    console.log("New data: ", blogData);
+   allBlogs = JSON.parse(localStorage.getItem("AllBlogs"));
+    allBlogs.push(blogData);
     // localStorage.setItem('blogData',JSON.stringify(blogData));
 
-    localStorage.setItem('blogData',blogData.blogTemp)
+    console.log("All blogs: ", allBlogs)
+    saveToLocalStorage(allBlogs);
 
+
+   const dataArray= JSON.parse(localStorage.getItem('AllBlogs'));
+
+   console.log(dataArray);
+    addBlog(blogData);
 
 })
 
+const saveToLocalStorage=(newData) => {
+    localStorage.setItem('AllBlogs', JSON.stringify(newData));
+}
 
 
 
-const addBlog=()=>{
+const addBlog=(blogData)=>{
+
+
     const blogN=document.createElement('div');
     blogN.classList.add('blog');
 
