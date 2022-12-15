@@ -71,7 +71,11 @@
             
         }
 
-
+        .blog .blog-image img{
+            height: 270px;
+            width: 380px;
+            margin-top: 10px;
+        }
 
         
          
