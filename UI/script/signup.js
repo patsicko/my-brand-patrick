@@ -101,9 +101,6 @@ if(!password.value.match(pass)){
 
 
 
-
-
-
 const button=document.getElementById('btn-signup')
 console.log(button)
 
@@ -112,7 +109,13 @@ button.addEventListener("click",(event)=>{
 event.preventDefault();
 validateInput();
 
-formData()
+formData();
+
+// if(fname.value.trim()!="" && lname.value.trim()!="" && email.value.match(validRegex) && password.value.match(pass)){
+//   window.open('/admin.html')
+// }
+
+
 
 });
 
