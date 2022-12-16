@@ -183,3 +183,9 @@ background-color: #c3d8c7;
     
     max-height: 1000px;
 }
+
+#textarea{
+    border:1px solid black;
+    height: 420px;
+    width: 98%;
+}
