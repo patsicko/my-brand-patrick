@@ -61,3 +61,30 @@
     font-family: sans-serif;
     cursor: pointer;
 }
+
+
+#comment-text{
+    height: 120px;
+    width: 380px;
+    
+}
+.comments-form input[type=text]{
+    height: 30px;
+    width: 180px;
+    outline: none;
+    padding-left: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.comments-form input[type=text]::placeholder{
+    font-size: 1rem;
+    font-family: sans-serif;
+
+}
+.comments-form{
+    display: none;
+}
+
+.comments{
+    display: none;
+}

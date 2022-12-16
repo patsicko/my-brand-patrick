@@ -48,7 +48,7 @@ span{
     padding-top: 50px;
     width: 100%;
     margin: auto;
-    height: 800px;
+    height: 500px;
     overflow-y: auto;
    
     
@@ -176,5 +176,16 @@ background-color: #c3d8c7;
 }
 
 .admin-sidebar{
-    height: 100vh;
+    height: 1800px;
+}
+
+.admin{
+    
+    max-height: 1000px;
+}
+
+#textarea{
+    border:1px solid black;
+    height: 420px;
+    width: 98%;
 }
