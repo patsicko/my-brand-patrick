@@ -1,0 +1,110 @@
+/* 
+// Large devices (desktops, 720px and up) */
+
+
+
+
+@media (min-width: 720px) {
+
+    .header{
+        width: 100vw;
+    }
+  
+
+    tr td{
+        font-size: 1.4rem;
+        font-family: sans-serif;
+       
+    }
+
+
+.about-content{
+    height: 400px;
+}
+
+.about-text{
+    font-size: 2rem;
+ }
+
+
+
+ .project-bar{
+    box-shadow: 2px 2px 4px  #918f8f,-2px -2px 4px white;
+    border-radius: 10px;
+    width: 60%;
+    margin: auto;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    padding: 5px;
+    padding-right: 10px;
+} 
+
+.project-btn button{
+    
+    margin-left: 0px;
+    
+}
+.project-btn{
+    
+    width: 150px;
+}
+.project-title-mobile{
+    display: none;
+}
+
+.project-card{
+    display: block;
+    margin-top: 40px;
+}
+
+
+
+.admin-profile img{
+    display: block;
+    border-radius: 50%;
+}
+
+.logout button{
+    margin-left: 85%;
+    width: 85px;
+}
+
+
+
+
+
+
+
+ .footer-right{
+
+    background-color: #D9D9D9;
+    width: 80%;
+    height: 60px;
+    border-radius: 20px;
+   text-align: center;
+   padding-top: 10px;
+   display: grid;
+   grid-template-columns: 3fr 1fr 1fr 1fr;
+   justify-items: center;
+   box-shadow: 2px 2px 4px black,-2px -2px 4px white;
+   margin-top: 40px;
+   
+}
+
+.footer-right-message{
+
+    height: 40px;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    color: blue;
+    }
+
+} 
+
+
+
+
+
+

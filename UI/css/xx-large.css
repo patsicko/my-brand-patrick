@@ -1,0 +1,98 @@
+
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { 
+       
+
+    .header{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        height: 15vh;
+       
+    }
+    
+    
+    .navigations{
+        display: block;
+       
+        height: 20px;
+        
+     
+        
+    }
+
+    /* nav-mobile */
+
+.nav-mobile{
+display: none;
+}
+
+
+
+
+
+    
+    
+    #home{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        padding-left: 80px;
+        }
+
+        .welcome{
+       
+            font-size: xx-large;
+        }
+
+
+
+
+
+
+        .admin-right{
+            display: block;
+            width: 70%;
+           
+        }
+        
+
+        .admin-sidebar{
+  
+            
+            width: 25%;
+            background-color: #68756A;
+            margin-top: 0;
+            margin-right: 40px;
+            border-radius: 8px;
+              
+            
+        }
+
+
+        .admin-header-right{
+   
+            display: flex;
+            padding-top: 25px;
+            gap: 20px;
+            padding-left: 75%;
+         }
+
+       
+
+          .blog{
+ 
+            height: 270px;
+            width: 80%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 2.6fr;
+            
+        } 
+
+
+
+    
+     }
+    
+    

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="/css/phones.css">
+    <link rel="stylesheet" href="/css/tablets.css">
+    <link rel="stylesheet" href="/css/x-large.css">
+    <link rel="stylesheet" href="/css/xx-large.css">
+    <link rel="stylesheet" href="/css/desktops.css">
+    <link rel="stylesheet" href="css/blog.css">
+<body class="blog-page-true">
+
+
+    <div class="header" id="header">
+
+        <div class="logo">
+        
+           <img src="/assets/images/logo.png" alt="">
+        </div>
+
+        <div class="navigations">
+         <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="index.html">ABOUT</a></li>
+            <li><a href="index.html">SKILLS</a></li>
+            <li><a href="index.html">MY WORK</a></li>
+            <li><a href="index.html">CONTACT ME</a></li> 
+
+            <li><a href="index.html">BLOGS</a></li>
+            <a href="login.html"> <button class="btn-header">LOGIN</button>     </a>
+            
+         </ul>
+
+        </div>
+
+    </div>
+
+
+    <div class="nav-mobile" id="nav-mobile">
+        <div class="nav-mobile-header" id="nav-mobile-header">
+            <div class="logo-mobile">
+                <img src="/assets/images/logo.png" alt="">
+            </div>
+
+            <div class="grid3" id="grid3">
+                <img src="/assets/images/grid3.png" alt="">
+            </div>
+        </div>
+
+
+        <div class="nav-mobile-body" id="nav-mobile-body">
+
+
+            <div class="nav-mobile-body-head">
+                <div class="nav-mobile-body-head-logo" id="nav-mobile-body-head-logo">
+                    <img src="/assets/images/logo.png" alt="">  
+                </div>
+                <div class="nav-mobile-body-head-x" id="nav-mobile-body-head-x">
+                    <img src="/assets/images/X.png" alt="">
+                </div>
+            </div>
+            <ul >
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="index.html">ABOUT</a></li>
+                <li><a href="index.html">SKILLS</a></li>
+                <li><a href="index.html">MY WORK</a></li>
+                <li><a href="index.html">CONTACT ME</a></li> 
+    
+                <li><a href="index.html">BLOGS</a></li>
+                <a href="login.html"> <button class="btn-header">LOGIN</button>     </a>
+                
+             </ul>
+        </div>
+    </div>
+
+
+    <div class="blog-contents" id="blog-contents">
+        <div class="blog-title" >
+        BASIC GIT COMMANDS
+        </div> <br> <br>
+
+        <div class="blog-author">
+            Prepared by: MANIBAHO Patrick
+        </div>
+
+        <br> <br>
+                <div class="blog-paragraph">
+                    <h1>WHAT IS GIT ?</h1>
+                    Git is a version control tool used widely by developers across the world. <br>
+                     It helps individual developers keep track of changes as they work on different features in the same project, and helps teams organize their code.
+
+                    A version control system, or VCS, tracks the history of changes as people and teams collaborate on projects together. As developers make changes to the project, any earlier version of the project can be recovered at any time. <br> 
+                    Developers can review project history to find out: <br> • Which changes were made?
+                    <ul>
+                        <li>Who made the changes?</li>
+                        <li>When were the changes made?</li>
+                        <li>Why were changes needed?</li>
+                    </ul>
+                    GitHub can integrate with Git - it is a web application that allows users to host, explore, and collaborate on code with their teams and the wider developer community.
+                    <br> <br>
+                    <h2>Repositories</h2>
+                    <br> <br>
+                    A repository, or Git project, encompasses the entire collection of files and folders associated with a project, along with each file's revision history. The file history appears as snapshots in time called commits. 
+
+                    To use Git, developers use specific commands to copy, create, change, and combine code. These commands can be executed directly from the command line or by using an application like GitHub Desktop
+
+                    code : open vs code through terminal google-chrome: Open google chrome using terminal
+
+                    <br> <br>
+
+                    <h2>Shortcuts</h2>  <br>
+                        Ctrl +`: Shortcut to open terminal in vs code <br>
+
+                        Ctrl+Q: Shortcut to close VS code <br>
+
+                        Ctrl + C: close terminal <br>
+
+                        Ctrl+Alt+T: Opening Terminal <br>
+
+
+
+                        git init: This command initializes the repository as a git repository which enables git’s powerful features. Notice that there is a .git directory in the created repository( you may need to enable hidden files to view this folder). The .git folder is the only difference between a Git repo and an ordinary folder, so deleting it will turn your project back into an unversioned collection of files.
+
+                        git branch: Shows the branches being worked on locally.
+
+                        git status: view the status of a repository.
+
+                        git add: The git add command adds a change in the working directory to the staging area. It tells Git that you want to include updates to a particular file in the next commit. However, git add doesn't really affect the repository in any significant way. Changes are not actually recorded until you run git commit. The easiest way to add all files to your Git repository is to use the “git add” command followed by the “-A” option for “all”.
+
+                        In this case, the new (or untracked), deleted and modified files will be added to your Git staging area. We also say that they will be staged. Alternatively, you can use the “git add” followed by a “.” which stands for “current directory”. However, using the “.” syntax implies that you are currently at the top of your project folder hierarchy. As a consequence, if you don’t use it at the top of your project hierarchy, you will only add files in the current working directory. <br>
+
+                        git add -A <br>
+
+                        git add . <br>
+
+                        (At the root of your project folder.) <br>
+
+                        <h3>Commit the Snapshot</h3> 
+
+                        A snapshot represents the state of your project at a given point in time. git commit: Recording the staged snapshot with a descriptive message.
+
+                        <h2>Commit message template</h2>
+                        <h2>A good commit message has three parts:</h2>
+
+                        <ol>
+                            <li>Message title </li>
+                            <li>Message body</li>
+                            <li>Message footer The message title starts by type of the task {feat, bug, chore} followed by colon and then a brief description 
+                                of what changed in that commit, no more than 50 characters, the description must start with a capital letter, and use imperative model. No past, no future, just present tense as imperative model sounds. You will describe all of changes you made in that commit in the body outlined as tasks, every task is started by a dash and a capital letter. Every task is in imperative mood. Remember that commit is like a small letter that you are communicating to other programmers, so that if they read it, they will undestand what you did in that commit, so try to express well what you have done. Don't hesitate to use techninal terms in it. Since it a message to other programmers, they understand what you want them to know. The commit message footer, 
+                                must be inside square bracket, and starts with {Finishes, Delivers}, followed by hash (#) followed by pivotal tracker ID Note: The head is separated from the body with an empty space, and the body separated from the footer with empty space</li>
+                        </ol>
+
+                        <div class="reactions">
+                            <div class="like">
+                                Like
+                            </div>
+                            <div class="comment">
+                                Comment
+                            </div>
+                            <div class="share">
+                                Share
+                            </div>
+                        </div>
+
+                        <form action="" class="comments-form"> <br>
+                            <input type="text" placeholder="username"  name="userName" > <br>  <br>
+                            <textarea id="comment-text" rows="" cols="" placeholder="Your comment.."></textarea>
+                            <br>
+                            <button  type="submit">Submit</button> <br>
+                        </form>
+                        <br>
+
+                        <div class="comments">
+                            <h3>Comments</h3>
+
+                        </div>
+        
+                </div>
+                <br> <br>
+
+
+
+               
+
+    </div>
+
+
+    <br> <br>
+
+
+
+
+<div class="footer">
+    <div class="footer-left">
+     <div class="my-contact">
+         Contacts
+        </div> <br>
+        <ul>
+         <li>MANIBAHO Patrick</li>
+         <li>Tel: +250784660905</li>
+         <li>email: patsicko@gmail.com</li>
+        </ul>
+    </div>
+
+    <div class="footer-right">
+     <div class="footer-right-message">
+         Meet me here
+     </div>
+    <a href="https://github.com/patsicko"><img src="/assets/images/github.png" height="40px" alt=""></a> 
+    <a href="https://www.linkedin.com/feed/?trk=seo-authwall-base_google-one-tap-submit"> <img src="/assets/images/linkedin.png" alt=""></a>
+     <a href="https://www.instagram.com/patsicko/"><img src="/assets/images/instagram.png"  alt=""></a>
+    </div>
+
+   
+
+</div>
+
+</div>
+
+
+
+
+
+<script src="/script/blog.js"></script>
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/desktops.css">
+    <link rel="stylesheet" href="/css/phones.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/tablets.css">
+    <link rel="stylesheet" href="/css/x-large.css">
+    <link rel="stylesheet" href="/css/xx-large.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="shortcut icon" href="./assets/images/3.mylogo.png" type="image/x-icon">
+
+
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+
+        .allBlogs, .createBlog, .allUsers, .allMessages{
+            background-color: #858282;
+            width: 50%;
+            color: rgb(245, 236, 236);
+            
+        }
+       
+
+        </style>
+ 
+</head>
+<body class="admin">
+    
+
+
+     <!-- <div class="container"> -->
+
+        <div class="admin-header" id="AdminHeader">
+    
+            <div class="logo">
+        
+                <img src="/assets/images/logo.png" alt="">
+        </div>
+            
+            <div class="admin-header-right">
+                    
+                <div class="notifications">
+                    
+                    <img src="/assets/images/notification.png" height="60px"  alt="">
+                    <div class="notif-number">36</div>
+                    
+
+
+                </div>
+                <img src="/assets/images/profile.png" height="60px" style="border-radius: 50%;"  alt="">
+
+<!-- 
+                <div class="admin-profile">
+                    <img src="/assets/images/profile.png" height="60px"   alt="">
+                </div> -->
+            </div>
+
+    </div>
+
+        <div class="admin-container">
+
+         
+           <!-- admin header hhhhhhhhhhhhhhhhhh -->
+   
+                
+                <div class="admin-body">
+
+                    <div class="admin-sidebar">
+                        <div class="sidebar-header">
+
+                            
+                            <div class="profile">
+                                <img src="/assets/images/admin.jpg" height="" alt=""> 
+                            </div>
+                            <div class="names">
+                                MANIBAHO Patrick
+                            </div>
+
+                        </div>
+
+                        
+
+                        <br> <br> <br>
+
+                            <div class="home">
+                                <a href="home.html">HOME</a>
+                            </div>
+                      <br> <br> 
+
+                      <div class="menu"> 
+                      <button type="button" class="allBlogs">all blogs</button> <br> <br> <br> <br>
+                      <button type="button" class="createBlog">create blog</button> <br> <br> <br> <br>
+                      <button type="button" class="allUsers">all users</button> <br> <br> <br> <br>
+                      <button type="button" class="allMessages">messages</button> <br> <br> <br> <br>
+
+
+                      </div>
+
+                      
+                     <a href="login.html"><button type="button">LOGOUT</button></a>
+                        
+                     
+                   
+
+                    </div>
+
+                    <div class="admin-right">
+
+                   
+
+                        
+                        <div class="blogs-main-admin">
+
+
+                              
+
+                                <table>
+                                    <h2>BLOGS</h2> <br>
+                                    <tr>
+                                    <th>Blog No</th>
+                                    <th>BLOG TITLE</th>
+                                    <th>EDIT</th>
+                                    <th>DELETE  </th>
+                                    </tr>
+                                
+                                    <tbody class="blogTable">
+
+    
+
+                                     </tbody>
+ 
+                                 </table>
+
+                                   <br> <br> <br>
+
+                                 <table id="users">
+                                    <h2>USERS</h2>
+                                    <br>
+                                    <tr>
+                                      <th>USER No</th>
+                                      <th>FIRST NAME</th>
+                                      <th>LAST NAME</th>
+                                      <th>EMAIL</th>
+                                      <th>DELETE</th>
+                                    </tr>
+                                    <tbody class="userTable">
+                                     
+                                    </tbody>
+
+
+                                  </table>
+
+
+
+                                <br> <br><br>
+
+
+                                <table id="users">
+                                  <h2>MESSAGES</h2>
+                                  <br>
+                                  <tr>
+                                    <th>MESSAGE No</th>
+                                    <th>NAMES</th>
+                                    <th>LAST NAME</th>
+                                    <th>EMAIL</th>
+                                    <th>DELETE</th>
+                                  </tr>
+                                  <tbody class="userTable">
+                                   
+                                  </tbody>
+
+
+                                </table>
+
+                          <br> <br> <br>
+                       
+
+                                <form class="admin-blog-form">
+                                    <h1 class="create-blog">CREATE A BLOG</h1>
+                        
+                                    
+                        
+                                    <form-group><label for="">Blog title</label> &nbsp; &nbsp; &nbsp; &nbsp;  <input  type="text" name="title" placeholder="Blog title" id="title"></form-group> <br> <br>
+                                    <form-group><label for=""> Blog author</label>  &nbsp; <input type="text" name="author" placeholder="Blog author" id="author"></form-group> <br> <br>
+                                    <form-group><label for=""> Blog image</label>  &nbsp; <input type="file" id="blog-img" placeholder="upload image"  name="blog-img"></form-group> <br> <br>
+
+                        
+                                    <textarea name="" id="textarea" cols="30" rows="10" placeholder="#">
+                                        
+                                    </textarea>
+                                    <br> <br>
+                                    
+                                    <button type="submit" id="create-blog-btn">CREATE</button>
+                            
+                                </form>
+
+    
+                            
+
+           
+                      
+
+
+                        </div>
+
+
+
+                </div>
+    
+   
+   
+   
+                 
+       
+          
+        </div>
+      <br>
+   
+   
+    </div>
+   
+
+    <div class="footer">
+        <div class="footer-left">
+         <div class="my-contact">
+             Contacts
+            </div> <br>
+            <ul>
+             <li>MANIBAHO Patrick</li>
+             <li>Tel: +250784660905</li>
+             <li>email: patsicko@gmail.com</li>
+            </ul>
+        </div>
+
+        <div class="footer-right">
+         <div class="footer-right-message">
+             Meet me here
+         </div>
+        <a href="https://github.com/patsicko"><img src="/assets/images/github.png" height="40px" alt=""></a> 
+        <a href="https://www.linkedin.com/feed/?trk=seo-authwall-base_google-one-tap-submit"> <img src="/assets/images/linkedin.png" alt=""></a>
+         <a href="https://www.instagram.com/patsicko/"><img src="/assets/images/instagram.png"  alt=""></a>
+        </div>
+
+
+ <!-- </div> -->
+
+ <script src="/script/admin.js"></script> 
+
+
+    <!-- <script>
+        tinymce.init({
+          selector: 'textarea',
+          plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect',
+          toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+          tinycomments_mode: 'embedded',
+          tinycomments_author: 'Author name',
+          mergetags_list: [
+            { value: 'First.Name', title: 'First Name' },
+            { value: 'Email', title: 'Email' },
+          ]
+        });
+      </script> -->
+
+     
+</body>
+</html>

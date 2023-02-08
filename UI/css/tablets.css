@@ -1,0 +1,39 @@
+/* // Medium devices (tablets, 480px and up) */
+@media (min-width: 480px) { 
+    
+    .header{
+        display: none;
+        width: 100%;
+       
+        
+    }
+    
+    .navigations{
+        display: none;
+        
+    }
+    
+
+    .footer-right{
+        background-color: #D9D9D9;
+        width: 80%;
+        height: 60px;
+        border-radius: 20px;
+       text-align: center;
+       padding-top: 10px;
+       display: grid;
+       grid-template-columns: 3fr 1fr 1fr 1fr;
+       justify-items: center;
+       box-shadow: 2px 2px 4px black,-2px -2px 4px white;
+       margin-top: 40px;
+       
+    }
+
+    .project-bar img{
+        display: block;
+        height: 40px;
+     }
+     
+
+    
+}
