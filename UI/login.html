@@ -90,11 +90,11 @@
 
         <form class="login-form" id="login-form" >
             
-            <label for="names">Username</label> &nbsp;&nbsp;<input type="text"  name="username" id="username" placeholder="username" required> <br> 
-            <div class="username-error"></div>
+            <label for="email">email</label> &nbsp;&nbsp;<input type="email"  name="email" id="email" placeholder="email" > <br> 
+            <div class="email-error"></div>
             <br> <br>
   
-            <label for="password">password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password" id="password" placeholder="password" required> <br>
+            <label for="password">password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password" id="password" placeholder="password" > <br>
             <div class="password-error"></div> <br>
            
             <br> <br>
@@ -103,6 +103,8 @@
             <button type="submit" class="btn-login" id="btn-login"> LOGIN</button>
             </a>
              <br> <br>
+
+             <div class="systemError"></div>
         </form>
 
         <H3>Dont you have acount ? <br>  <br>  <a href="signup.html">SIGNUP</a></H3>
@@ -111,7 +113,14 @@
     </div>
 
 </div>
-<script src="/script/login.js"></script>
-<script src="/script/index.js"></script>
+
+<script type="module" src="/script/login.js"></script>
+   
+</script>
+
 </body>
 </html>
+
+
+
+

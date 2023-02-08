@@ -234,6 +234,12 @@ box-shadow: 2px 2px 4px  #918f8f,-2px -2px 4px white;
     
 }
 
+.node{
+    border-radius: 20px;
+    overflow-x: hidden;
+    width: 80px;
+    
+}
 
 
 .project-contents{

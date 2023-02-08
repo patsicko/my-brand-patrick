@@ -1,0 +1,21 @@
+.users{
+  
+    width: 20%;
+    margin-left: 15%;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-family: sans-serif;
+    
+ }
+ 
+ .user-list{
+    
+     background-color: #68756A;
+     width: 600px;
+     margin-left: 0;
+     padding-left: 20px;
+ }
+ 
+ table,body,tr,td{
+     border-collapse: collapse;
+ }

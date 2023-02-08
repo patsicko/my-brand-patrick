@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/desktops.css">
     <link rel="stylesheet" href="/css/phones.css">
     <link rel="stylesheet" href="/css/style.css">
@@ -12,7 +13,36 @@
     <link rel="stylesheet" href="/css/x-large.css">
     <link rel="stylesheet" href="/css/xx-large.css">
     <link rel="stylesheet" href="/css/admin.css">
-    <!-- <script src="https://cdn.tiny.cloud/1/najs4d1mtf9k1l8tnsvapqb2oaiw0j8n1g44nrgzdbkxh056/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> -->
+    <link rel="shortcut icon" href="./assets/images/3.mylogo.png" type="image/x-icon">
+
+
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+
+        .allBlogs, .createBlog, .allUsers, .allMessages{
+            background-color: #858282;
+            width: 50%;
+            color: rgb(245, 236, 236);
+            
+        }
+       
+
+        </style>
+ 
 </head>
 <body class="admin">
     
@@ -39,10 +69,10 @@
                 </div>
                 <img src="/assets/images/profile.png" height="60px" style="border-radius: 50%;"  alt="">
 
-
+<!-- 
                 <div class="admin-profile">
                     <img src="/assets/images/profile.png" height="60px"   alt="">
-                </div>
+                </div> -->
             </div>
 
     </div>
@@ -53,10 +83,6 @@
            <!-- admin header hhhhhhhhhhhhhhhhhh -->
    
                 
-
-
-
-
                 <div class="admin-body">
 
                     <div class="admin-sidebar">
@@ -72,28 +98,26 @@
 
                         </div>
 
+                        
+
                         <br> <br> <br>
 
                             <div class="home">
-                                <a href="index.html">HOME</a>
+                                <a href="home.html">HOME</a>
                             </div>
                       <br> <br> 
 
-                       <div class="notif">
+                      <div class="menu"> 
+                      <button type="button" class="allBlogs">all blogs</button> <br> <br> <br> <br>
+                      <button type="button" class="createBlog">create blog</button> <br> <br> <br> <br>
+                      <button type="button" class="allUsers">all users</button> <br> <br> <br> <br>
+                      <button type="button" class="allMessages">messages</button> <br> <br> <br> <br>
 
-                       <a href="/notification.html">NITIFICATIONS</a>
-                    
-                       </div>
 
-                      <br> <br>
-
-                      <div class="articles">
-                        <a href="#">BLOGS</a>
                       </div>
 
-                      <br> <br> 
                       
-                     <a href="login.html"><button>LOGOUT</button></a>
+                     <a href="login.html"><button type="button">LOGOUT</button></a>
                         
                      
                    
@@ -106,242 +130,99 @@
 
                         
                         <div class="blogs-main-admin">
-                            
-                            <div class="blog-section" id="blog-section"><h1>BLOGS</h1> </div>
 
 
+                              
 
-<!-- 
+                                <table>
+                                    <h2>BLOGS</h2> <br>
+                                    <tr>
+                                    <th>Blog No</th>
+                                    <th>BLOG TITLE</th>
+                                    <th>EDIT</th>
+                                    <th>DELETE  </th>
+                                    </tr>
+                                
+                                    <tbody class="blogTable">
 
-                            <div class=" blog  blog1" id="blog">
-                                <div class="blog-image">
-                                    <img src="/assets/images/blog-image.jpg" width="380px" height="270px" alt="">
-                        
-                                </div>
-                                <div class="blog-content">
-                        
-                                    <div class="blog-title">
-                                        <a href="blog.html">BASIC GIT COMMANDS</a>
-                                    </div>
+    
+
+                                     </tbody>
+ 
+                                 </table>
+
+                                   <br> <br> <br>
+
+                                 <table id="users">
+                                    <h2>USERS</h2>
                                     <br>
-                                    <div class="blog-author">
-                                        MANIBAHO Patrick
-                                    </div>
-                                     <br> 
-                                    <div class="blog-date">
-                                    September 23 2022
-                                    </div>
-                                    <br> <br>
-                                    <div class="blog-text">
-                                       <a href="blog.html"> Git is a version control tool used widely by developers across the world. 
-                                        It helps individual developers keep track of changes as they work on different features in the same project, and helps teams organize their  code <span>Read more...</span> </a>
-                                        
-                                        <div class="pliviledge">
-                                            <div class="edit">
-                                                Edit
-                                            </div>
-                                            <div class="delete" id="delete-blog">Delete</div>
-                                        </div>
-                                    </div>
-                        
-                                    
-                        
-                                </div>
-                        
-                            </div> <br> <br> <br>
-                            <div class="blog blog2" id="blog">
-                                <div class="blog-image">
-                                    <img src="/assets/images/blog-image.jpg"width="380px"height="270px" alt="">
-                        
-                                </div>
-                                <div class="blog-content">
-                        
-                                    
-                                    <div class="blog-title">
-                                        <a href="blog.html">BASIC GIT COMMANDS</a>
-                                    </div>
-                                    <br>
-                                    <div class="blog-author">
-                                        MANIBAHO Patrick
-                                    </div>
-                                     <br> 
-                                    <div class="blog-date">
-                                    September 23 2022
-                                    </div>
-                                    <br> <br>
-                                    <div class="blog-text">
-                                       <a href="blog.html"> Git is a version control tool used widely by developers across the world. 
-                                        It helps individual developers keep track of changes as they work on different features in the same project, and helps teams organize their  code <span>Read more...</span></a>
+                                    <tr>
+                                      <th>USER No</th>
+                                      <th>FIRST NAME</th>
+                                      <th>LAST NAME</th>
+                                      <th>EMAIL</th>
+                                      <th>DELETE</th>
+                                    </tr>
+                                    <tbody class="userTable">
+                                     
+                                    </tbody>
 
 
-                                        <div class="pliviledge">
-                                            <div class="edit">
-                                                Edit
-                                            </div>
-                                            <div class="delete" id="delete-blog">
-                                                Delete
-                                            </div>
-                                        </div>
-                                    </div>
-                        
-                                    
-                        
-                                </div>
-                            </div>
-                            <br> <br> <br>
-                            <div class="blog  blog3" id="blog">
-                                <div class="blog-image">
-                                    <img src="/assets/images/blog-image.jpg"width="380px"height="270px" alt="">
-                        
-                                </div>
-                                <div class="blog-content">
-                        
-                                    
-                                    <div class="blog-title">
-                                        <a href="blog.html">BASIC GIT COMMANDS</a>
-                                    </div>
-                                    <br>
-                                    <div class="blog-author">
-                                        MANIBAHO Patrick
-                                    </div>
-                                     <br> 
-                                    <div class="blog-date">
-                                    September 23 2022
-                                    </div>
-                                    <br> <br>
-                                    <div class="blog-text">
-                                       <a href="blog.html"> Git is a version control tool used widely by developers across the world. 
-                                        It helps individual developers keep track of changes as they work on different features in the same project, and helps teams organize their  code <span>Read more...</span></a>
-                                        <div class="pliviledge">
-                                            <div class="edit">
-                                                Edit
-                                            </div>
-                                            <div class="delete" id="delete-blog">Delete</div>
-                                        </div>
-                                    </div>
-                        
-                                    
-                        
-                                </div>
-                            </div>
-                        
-                            <br> <br> <br>
-                            <div class="blog blog4" id="blog">
-                                <div class="blog-image">
-                                    <img src="/assets/images/blog-image.jpg"width="380px"height="270px" alt="">
-                        
-                                </div>
-                                <div class="blog-content">
-                        
-                                    
-                                    <div class="blog-title">
-                                        <a href="blog.html">BASIC GIT COMMANDS</a>
-                                    </div>
-                                    <br>
-                                    <div class="blog-author">
-                                        MANIBAHO Patrick
-                                    </div>
-                                     <br> 
-                                    <div class="blog-date">
-                                    September 23 2022
-                                    </div>
-                                    <br> <br>
-                                    <div class="blog-text">
-                                       <a href="blog.html"> Git is a version control tool used widely by developers across the world. 
-                                        It helps individual developers keep track of changes as they work on different features in the same project, and helps teams organize their  code <span>Read more...</span></a>
-                                        <div class="pliviledge">
-                                            <div class="edit">
-                                                Edit
-                                            </div>
-                                            <div class="delete" id="delete-blog">Delete</div>
-                                        </div>
-                                    </div>
-                        
-                                    
-                        
-                                </div>
-                            </div>
-                        
-                            <br> <br> <br>
-                        
-                            <div class="blog blog5" id="blog">
-                                <div class="blog-image">
-                                    <img src="/assets/images/blog-image.jpg"width="380px"height="270px" alt="">
-                        
-                                </div>
-                                <div class="blog-content">
-                        
-                                 
-                                    <div class="blog-title">
-                                        <a href="blog.html">BASIC GIT COMMANDS</a>
-                                    </div>
-                                    <br>
-                                    <div class="blog-author">
-                                        MANIBAHO Patrick
-                                    </div>
-                                     <br> 
-                                    <div class="blog-date">
-                                    September 23 2022
-                                    </div>
-                                    <br> <br>
-                                    <div class="blog-text">
-                                       <a href="blog.html"> Git is a version control tool used widely by developers across the world. 
-                                        It helps individual developers keep track of changes as they work on different features in the same project, and helps teams organize their  code <span>Read more...</span></a>
-                                        <div class="pliviledge">
-                                            <div class="edit">
-                                                Edit
-                                            </div>
-                                            <div class="delete" id="delete-blog">Delete</div>
-                                        </div>
-                                    </div>
-                        
-                                    
-                        
-                                </div>
-                            </div> 
- -->
+                                  </table>
 
 
 
+                                <br> <br><br>
 
-                        
-                        
-                           </div>
+
+                                <table id="users">
+                                  <h2>MESSAGES</h2>
+                                  <br>
+                                  <tr>
+                                    <th>MESSAGE No</th>
+                                    <th>NAMES</th>
+                                    <th>LAST NAME</th>
+                                    <th>EMAIL</th>
+                                    <th>DELETE</th>
+                                  </tr>
+                                  <tbody class="userTable">
+                                   
+                                  </tbody>
+
+
+                                </table>
+
+                          <br> <br> <br>
                        
 
+                                <form class="admin-blog-form">
+                                    <h1 class="create-blog">CREATE A BLOG</h1>
+                        
+                                    
+                        
+                                    <form-group><label for="">Blog title</label> &nbsp; &nbsp; &nbsp; &nbsp;  <input  type="text" name="title" placeholder="Blog title" id="title"></form-group> <br> <br>
+                                    <form-group><label for=""> Blog author</label>  &nbsp; <input type="text" name="author" placeholder="Blog author" id="author"></form-group> <br> <br>
+                                    <form-group><label for=""> Blog image</label>  &nbsp; <input type="file" id="blog-img" placeholder="upload image"  name="blog-img"></form-group> <br> <br>
 
+                        
+                                    <textarea name="" id="textarea" cols="30" rows="10" placeholder="#">
+                                        
+                                    </textarea>
+                                    <br> <br>
+                                    
+                                    <button type="submit" id="create-blog-btn">CREATE</button>
+                            
+                                </form>
 
+    
+                            
 
-
-
-
-
-
-                           
-           
-                             <br> <br> <br>
            
                       
-                            <form class="admin-blog-form">
-                                <h1 class="create-blog">CREATE A BLOG</h1>
-                
-                            
-                
-                            <form-group><label for="">Blog title</label> &nbsp; &nbsp; &nbsp; &nbsp;  <input  type="text" name="code" placeholder="Blog title" id="title"></form-group> <br> <br>
-                            <form-group><label for=""> Blog author</label>  &nbsp; <input type="text" name="name" placeholder="Blog author" id="author"></form-group> <br> <br>
-                            <form-group><label for=""> Blog image</label>  &nbsp; <input type="file" id="blog-img" placeholder="upload image"  name="blog-img"></form-group> <br> <br>
 
-                
-                            <textarea name="" id="textarea" cols="30" rows="10" placeholder="#">
-                                
-                            </textarea>
-                            <br> <br>
-                            
-                            <button type="submit" id="create-blog">CREATE</button>
-                            
-                        </form>
 
-                    </div>
+                        </div>
+
 
 
                 </div>
@@ -382,9 +263,10 @@
 
 
  <!-- </div> -->
- 
- <script src="/script/admin.js"></script>
- <script src="/script/index.js"></script>
+
+ <script src="/script/admin.js"></script> 
+
+
     <!-- <script>
         tinymce.init({
           selector: 'textarea',

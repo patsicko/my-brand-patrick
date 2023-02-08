@@ -1,7 +1,7 @@
 
 
-
-
+ const token=localStorage.getItem('token');
+ console.log(token)
 
 const blogContainer=document.querySelector('.blogs-main-admin');
 const form=document.querySelector('.admin-blog-form')
@@ -10,62 +10,338 @@ const form=document.querySelector('.admin-blog-form')
 const title=document.getElementById('title');
 const author=document.getElementById('author');
 let blogImage='';
-document.getElementById('blog-img').addEventListener('change',function(){
-
-    const reader=new FileReader();
-    reader.readAsDataURL(this.files[0])
-    reader.addEventListener('load',()=>{
-    blogImage=reader.result;
-    })
-
-})
-
 
 
 
 const createButton=document.getElementById('create-blog');
 const textarea=document.getElementById('textarea')
-let allBlogs=[];
 
 
 
-createButton.addEventListener('click',e=>{
-    e.preventDefault();
+
+    document.getElementById('blog-img').addEventListener('change',function(){
+
+        const reader=new FileReader();
+        reader.readAsDataURL(this.files[0])
+        reader.addEventListener('load',()=>{
+        blogImage=reader.result;
+        })
+    
+    })
     
     
-    const blogTemp=textarea.value;
+    
+    const blogText=textarea.value;
+
 
     const blogData={
         "title":title.value,
         "author":author.value,
         "blogImage":blogImage,
-        "blogTemp": blogTemp,
+        "blogText": blogText,
     }
     
 
 
-    allBlogs.push(blogData);
-   
+
+    const allBlogs=document.querySelector('.allBlogs');
+    
+
+
+
+
+    const fetchBlogs = async(url = '')=> {
+
+        const response = await fetch(url, {
+          method: 'GET'
+        });
+      
+        return response.json(); 
+      }
+
+
+
+
+      
+const getBlogs = async()=>{
+
+
+
+    document.querySelector('.blogTable').innerHTML='';
+    document.querySelector('.userTable').innerHTML='';
+    document.querySelector('.admin-blog-form').innerHTML='';
+
+   await fetchBlogs('https://my-brand-backend.cyclic.app/api/getBlogs').then((response)=>{
+       
+        const blogs=response.data.posts;
+
+        blogs.map((blog,index)=>{
+            console.log(index)
+       document.querySelector('.blogTable').innerHTML+=
+
+
+            `
+                            
+           <tr>
+            <td>${index+1}</td>
+            <td>${blog.blogTitle}</td>
+            <td><i class="fa fa-pencil-square-o" aria-hidden="true"></i></td>
+            <td><i class="fa fa-trash" aria-hidden="true" data-blog-id=${blog._id} ></i></td>
+            </tr>
+           
+            
+            `
+
+        })
+
+        deleteBlogById();
+            
+
+    });
 
     
-    saveToLocalStorage(allBlogs);
+
+}
 
 
-   let dataArray= JSON.parse(localStorage.getItem('AllBlogs'));
 
-   console.log(dataArray);
 
-    addBlog(dataArray);
 
-    console.log(blogContainer);
 
-    form.reset()
+document.querySelector('.allBlogs').addEventListener('click',e=>{
+ 
+    e.preventDefault();
+
+    document.querySelector('form').style.display='none';
+
+
+    
+
+
+getBlogs();
+
+
+})
+      
+
+
+
+
+
+
+const deleteBlogById=()=>{
+
+
+    const deleteBlogIcon =document.querySelectorAll('.fa-trash');
+
+    const dels=Array.from(deleteBlogIcon)
+
+    
+    
+    dels.map((del) =>{
+       
+    
+       del.addEventListener('click',e=>{
+
+       
+    
+        const blogId=e.target.dataset.blogId
+    
+
+        const deleteBlog =async(id)=>{
+          
+        const deletedBlog=await fetch(`https://my-brand-backend.cyclic.app/api/deleteBlog/${id}`,
+        {method:'DELETE', headers:{'content-Type':'application/json',token:`Bearer ${token} `}});
+         console.log(deletedBlog.status);
+
+         if(deletedBlog.status==204){
+            getBlogs()
+         }
+
+         
+
+        }
+    
+        deleteBlog(blogId);
+
+      
+
+        
+    
+       })  
+    
+        
+     
+
+    });
+
+
+
+}
+
+
+
+
+const blogTitle=document.querySelector('#title');
+const blogAuthor=document.querySelector('#author');
+const blogImg=document.querySelector('#blog-img');
+const text=document.querySelector('#textarea');
+console.log(text)
+const createBlogButton=document.querySelector('#create-blog-btn');
+
+
+
+
+document.querySelector('.createBlog').addEventListener('click',e=>{
+    e.preventDefault()
+
+console.log(e.target);
+
+document.querySelector('table').style.display='none';
+
+window.location.reload();
+
+
 
 })
 
-const saveToLocalStorage=(newData) => {
-    allBlogs = JSON.parse(localStorage.getItem("AllBlogs"));
-    localStorage.setItem('AllBlogs', JSON.stringify(newData));
+
+
+const postData = async(url = '', data = {})=> {
+
+    const response = await fetch(url, {});
+  
+    return response.json(); 
+  }
+  
+
+
+createBlogButton.addEventListener('click',e=>{
+    e.preventDefault();
+
+const formData= new FormData();
+
+formData.append('blogTitle',blogTitle.value);
+formData.append('blogAuthor',blogAuthor.value);
+formData.append('blogImage',blogImg.files[0]);
+formData.append('blogText',text.value);
+
+
+const createBlog=async()=>{
+
+    const response=await(await fetch('https://my-brand-backend.cyclic.app/api/createBlog',{method:'POST',headers:{token:`Bearer ${token}`},body:formData})).json()
+    
+    console.log(response)
+
+}
+
+createBlog();
+
+  
+})
+
+
+
+
+
+const allUsers=document.querySelector(".allUsers");
+document.querySelector('.userTable').innerHTML='';
+
+
+const getUsers=async()=>{
+    const response=await fetch('https://my-brand-backend.cyclic.app/api/getUsers',{headers:{token:`Bearer ${token}`}});
+    const data=await response.json();
+    console.log(data.data);
+const users=data.data
+    users.map((user,index)=>{
+
+   document.querySelector('.userTable').innerHTML+=`
+   
+   
+   <tr>
+   <td>${index+1}</td>
+   <td>${user.fname}</td>
+   <td>${user.lname}</td>
+   <td>${user.email}</td>
+   <td><i class="fa fa-trash" aria-hidden="true"  data-user-id=${user._id} ></i></td>
+    </tr>
+   
+   `
+
+    })
+
+    deleteUserById()
+}
+
+
+
+
+allUsers.addEventListener("click",e=>{
+
+    e.preventDefault();
+document.querySelector('.userTable').innerHTML='';
+document.querySelector('.blogTable').innerHTML='';
+document.querySelector('.admin-blog-form').innerHTML='';
+  
+
+    getUsers()
+})
+
+
+
+
+
+
+
+
+const deleteUserById=()=>{
+
+
+    const deleteUserIcon =document.querySelectorAll('.fa-trash');
+
+    const dels=Array.from(deleteUserIcon)
+
+    
+    
+    dels.map((del) =>{
+       
+    
+       del.addEventListener('click',e=>{
+
+       
+    
+        const userId=e.target.dataset.userId
+    
+
+        const deleteUser =async(id)=>{
+          
+        const deletedUser=await fetch(`https://my-brand-backend.cyclic.app/api/deleteUser/${id}`,
+        {method:'DELETE', headers:{'content-Type':'application/json',token:`Bearer ${token} `}});
+         console.log(deletedUser.status);
+
+         if(deletedUser.status==204){
+            getUsers()
+         }
+
+         
+
+        }
+    
+        deleteUser(userId);
+
+      
+
+        
+    
+       })  
+    
+        
+     
+
+    });
+
+
+
 }
 
 
@@ -75,246 +351,186 @@ const saveToLocalStorage=(newData) => {
 
 
 
-const addBlog=(dataArray)=>{
-
-dataArray.map(blogData=>{
 
 
 
 
-    const blogN=document.createElement('div');
-    blogN.classList.add('blog');
-
-    const blogImg=document.createElement('div');
-    blogImg.classList.add('blog-image');
-
-    const imageTrue=document.createElement('img');
-    imageTrue.setAttribute('src',`${blogData.blogImage}`);
-
-    blogImg.appendChild(imageTrue);
-    blogN.appendChild(blogImg)
 
 
-    // blog paragraph
-
-    const blogContent=document.createElement('div');
-    blogContent.classList.add('blog-content');
 
 
-    // blog title
 
-    const blogTitle=document.createElement('div');
 
-    blogTitle.classList.add('blog-title');
+
+
+
+
+
+
+
+
+
+
+
+
+// const addBlogdb=()=>{
+// const docRef=addDoc(collection(db,'blogs'),blogData)
+
+// }
+
+// addBlogdb()
+
+
+
+
+
+//     form.reset()
+
+// })
+
+
+
+
+
+// const addBlog=(dataArray)=>{
+
+// dataArray.map(blogData=>{
+
+
+
+
+//     const blogN=document.createElement('div');
+//     blogN.classList.add('blog');
+
+//     const blogImg=document.createElement('div');
+//     blogImg.classList.add('blog-image');
+
+//     const imageTrue=document.createElement('img');
+//     imageTrue.setAttribute('src',`${blogData.blogImage}`);
+
+//     blogImg.appendChild(imageTrue);
+//     blogN.appendChild(blogImg)
+
+
+//     // blog paragraph
+
+//     const blogContent=document.createElement('div');
+//     blogContent.classList.add('blog-content');
+
+
+//     // blog title
+
+//     const blogTitle=document.createElement('div');
+
+//     blogTitle.classList.add('blog-title');
      
-    const titleLink=document.createElement('a');
-    titleLink.setAttribute('href','blog.html');
-    titleLink.innerHTML=`${blogData.title}`;
+//     const titleLink=document.createElement('a');
+//     titleLink.setAttribute('href','blog.html');
+//     titleLink.innerHTML=`${blogData.title}`;
 
-    blogTitle.appendChild(titleLink);
+//     blogTitle.appendChild(titleLink);
 
-    blogContent.appendChild(blogTitle);
+//     blogContent.appendChild(blogTitle);
 
-    const br1=document.createElement('br');
+//     const br1=document.createElement('br');
 
-    blogContent.appendChild(br1);
+//     blogContent.appendChild(br1);
 
-    const blogAuthor=document.createElement('div');
-    blogAuthor.classList.add('blog-author');
-    blogAuthor.innerHTML=`${blogData.author}`;
+//     const blogAuthor=document.createElement('div');
+//     blogAuthor.classList.add('blog-author');
+//     blogAuthor.innerHTML=`${blogData.author}`;
 
-    blogContent.appendChild(blogAuthor);
+//     blogContent.appendChild(blogAuthor);
 
-    const br2=document.createElement('br');
-    blogContent.appendChild(br2);
+//     const br2=document.createElement('br');
+//     blogContent.appendChild(br2);
 
-    const blogDate=document.createElement('div');
-    blogDate.classList.add('blog-date');
-    blogDate.innerHTML=new Date();
+//     const blogDate=document.createElement('div');
+//     blogDate.classList.add('blog-date');
+//     blogDate.innerHTML=new Date();
 
-    blogContent.appendChild(blogDate);
+//     blogContent.appendChild(blogDate);
 
-    const br3=document.createElement('br');
-    blogContent.appendChild(br3);
+//     const br3=document.createElement('br');
+//     blogContent.appendChild(br3);
 
-    const br4=document.createElement('br');
-    blogContent.appendChild(br4);
+//     const br4=document.createElement('br');
+//     blogContent.appendChild(br4);
 
-    // blog text
+//     // blog text
 
-    const blogText=document.createElement('div');
-    blogText.classList.add('blog-text');
-    blogText.innerHTML=blogData.blogTemp;
-    blogText.style.overflowY='hidden';
+//     const blogText=document.createElement('div');
+//     blogText.classList.add('blog-text');
+//     blogText.innerHTML=blogData.blogTemp;
+//     blogText.style.overflowY='hidden';
     
 
-    const pliviledge=document.createElement('div');
-    pliviledge.classList.add('pliviledge');
+//     const pliviledge=document.createElement('div');
+//     pliviledge.classList.add('pliviledge');
 
-    const edit=document.createElement('div');
-    edit.classList.add('edit');
-    edit.innerHTML='Edit';
-    pliviledge.appendChild(edit);
+//     const edit=document.createElement('div');
+//     edit.classList.add('edit');
+//     edit.innerHTML='Edit';
+//     pliviledge.appendChild(edit);
 
-    const deleteBlog=document.createElement('div');
-    deleteBlog.classList.add('delete');
-    deleteBlog.setAttribute('id','delete-blog');
-    deleteBlog.innerHTML='Delete';
+//     const deleteBlog=document.createElement('div');
+//     deleteBlog.classList.add('delete');
+//     deleteBlog.setAttribute('id','delete-blog');
+//     deleteBlog.innerHTML='Delete';
 
-    pliviledge.appendChild(deleteBlog);
+//     pliviledge.appendChild(deleteBlog);
 
-    blogText.appendChild(pliviledge)
+//     blogText.appendChild(pliviledge)
 
-    blogContent.appendChild(blogText);
+//     blogContent.appendChild(blogText);
 
-    blogN.appendChild(blogContent);
+//     blogN.appendChild(blogContent);
 
-    blogContainer.appendChild(blogN);
+//     blogContainer.appendChild(blogN);
 
-console.log(blogContainer);
-
-
+// console.log(blogContainer);
 
 
 
-const deleteb=document.querySelectorAll('.delete');
 
-console.log(deleteb)
-deleteb.forEach(element=>{
-    element.addEventListener('click',e=>{
-        blogContainer.removeChild(e.target.parentElement.parentElement.parentElement.parentElement)
 
-        let dataArray= JSON.parse(localStorage.getItem('AllBlogs'));
+// const deleteb=document.querySelectorAll('.delete');
+
+// console.log(deleteb)
+// deleteb.forEach(element=>{
+//     element.addEventListener('click',e=>{
+//         blogContainer.removeChild(e.target.parentElement.parentElement.parentElement.parentElement)
+
+//         let dataArray= JSON.parse(localStorage.getItem('AllBlogs'));
 
         
 
-        dataArray.map((data,index)=>{
-            console.log(e.target.parentElement.parentElement.parentElement.parentElement.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.innerHTML);
-            console.log(data.title)
-     const dataTitle=e.target.parentElement.parentElement.parentElement.parentElement.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.innerHTML;
-     const objectTitle=data.title;
+//         dataArray.map((data,index)=>{
+//             console.log(e.target.parentElement.parentElement.parentElement.parentElement.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.innerHTML);
+//             console.log(data.title)
+//      const dataTitle=e.target.parentElement.parentElement.parentElement.parentElement.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.innerHTML;
+//      const objectTitle=data.title;
 
-     console.log(dataArray)
+//      console.log(dataArray)
 
-       if(dataTitle==objectTitle){
-        dataArray.splice(index,1);
-        console.log(dataArray);
+//        if(dataTitle==objectTitle){
+//         dataArray.splice(index,1);
+//         console.log(dataArray);
          
 
-        localStorage.setItem('AllBlogs',JSON.stringify(dataArray))
+//         localStorage.setItem('AllBlogs',JSON.stringify(dataArray))
 
-        dataArray= JSON.parse(localStorage.getItem('AllBlogs'));
-        addBlog(dataArray);
+//         dataArray= JSON.parse(localStorage.getItem('AllBlogs'));
+//         addBlog(dataArray);
 
 
-       }
+//        }
       
 
-        })
-
-        // localStorage.removeItem(e.target.parentElement.parentElement.parentElement.parentElement)
-    
-        // blogContainer.removeChild(e.target.parentElement.parentElement.parentElement.parentElement) 
-
-    })
-    
-})
+//         })
 
 
 
-
-
-
-
-const editb=document.querySelectorAll('.edit');
-
-console.log(edit)
-editb.forEach(element=>{
-    element.addEventListener('click',e=>{
-        
-
-        let dataArray= JSON.parse(localStorage.getItem('AllBlogs'));
-
-        
-
-        dataArray.map((data,index)=>{
-            console.log(e.target.parentElement.parentElement.parentElement.parentElement.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.innerHTML);
-            console.log(data.title)
-     const dataTitle=e.target.parentElement.parentElement.parentElement.parentElement.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.innerHTML;
-     const objectTitle=data.title;
-
-     console.log(dataArray)
-
-       if(dataTitle==objectTitle){
-
-        blogContainer.removeChild(e.target.parentElement.parentElement.parentElement.parentElement) 
-
-        dataArray.splice(index,1);
-        console.log(dataArray);
-        localStorage.removeItem('AllBlogs')
-
-        localStorage.setItem('AllBlogs',JSON.stringify(dataArray))
-
-        title.value= (e.target.parentElement.parentElement.parentElement.firstElementChild.firstElementChild.innerHTML);
-
-        author.value=(e.target.parentElement.parentElement.parentElement.firstElementChild.nextElementSibling.nextElementSibling.innerHTML)
-          
-        textarea.innerText=e.target.parentElement.parentElement.firstElementChild.innerHTML;
-
-     
-
-        // localStorage.setItem('AllBlogs',JSON.stringify(dataArray))
-
-        // dataArray= JSON.parse(localStorage.getItem('AllBlogs'));
-        // addBlog(dataArray);
-
-
-       }
-      
-
-        })
-
-        // localStorage.removeItem(e.target.parentElement.parentElement.parentElement.parentElement)
-    
-        // blogContainer.removeChild(e.target.parentElement.parentElement.parentElement.parentElement) 
-
-    })
-    
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const editb=document.querySelectorAll('.edit');
-// editb.forEach(element=>{
-//     element.addEventListener('click',e=>{
-//      title.value= (e.target.parentElement.parentElement.parentElement.firstElementChild.firstElementChild.innerHTML);
-
-//      author.value=(e.target.parentElement.parentElement.parentElement.firstElementChild.nextElementSibling.nextElementSibling.innerHTML)
-       
-//         textarea.innerText=e.target.parentElement.parentElement.firstElementChild.innerHTML;
-        
-       
 //     })
     
 // })
@@ -325,27 +541,65 @@ editb.forEach(element=>{
 
 
 
+// const editb=document.querySelectorAll('.edit');
+
+// console.log(edit)
+// editb.forEach(element=>{
+//     element.addEventListener('click',e=>{
+        
+
+//         let dataArray= JSON.parse(localStorage.getItem('AllBlogs'));
+
+        
+
+//         dataArray.map((data,index)=>{
+//             console.log(e.target.parentElement.parentElement.parentElement.parentElement.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.innerHTML);
+//             console.log(data.title)
+//      const dataTitle=e.target.parentElement.parentElement.parentElement.parentElement.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.innerHTML;
+//      const objectTitle=data.title;
+
+//      console.log(dataArray)
+
+//        if(dataTitle==objectTitle){
+
+//         blogContainer.removeChild(e.target.parentElement.parentElement.parentElement.parentElement) 
+
+//         dataArray.splice(index,1);
+//         console.log(dataArray);
+//         localStorage.removeItem('AllBlogs')
+
+//         localStorage.setItem('AllBlogs',JSON.stringify(dataArray))
+
+//         title.value= (e.target.parentElement.parentElement.parentElement.firstElementChild.firstElementChild.innerHTML);
+
+//         author.value=(e.target.parentElement.parentElement.parentElement.firstElementChild.nextElementSibling.nextElementSibling.innerHTML)
+          
+//         textarea.innerText=e.target.parentElement.parentElement.firstElementChild.innerHTML;
+
+//        }
+      
+
+//         })
+
+//     })
+    
+// })
 
 
 
 
-
-
-})
-
-
-
-}
+// })
 
 
 
+// }
 
 
 
-document.addEventListener('DOMContentLoaded',e=>{
+// document.addEventListener('DOMContentLoaded',e=>{
 
-    let dataArray= JSON.parse(localStorage.getItem('AllBlogs'));
-    addBlog(dataArray);
-    console.log(dataArray)
+//     let dataArray= JSON.parse(localStorage.getItem('AllBlogs'));
+//     addBlog(dataArray);
+//     console.log(dataArray)
 
-})
+// })

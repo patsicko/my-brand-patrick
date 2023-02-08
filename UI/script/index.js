@@ -1,3 +1,5 @@
+
+
 const grid3=document.getElementById('grid3');
 const navMobileHeader=document.getElementById('nav-mobile-header');
 const navMobileX=document.getElementById('nav-mobile-body-head-x');
@@ -97,23 +99,93 @@ localStorage.setItem('userMessage',JSON.stringify(userMessage));
 
 
 
-
-// const p=document.createElement('p');
-// p.innerHTML+=userMessage.message
-// notif.appendChild(p)
-
-
-
-
-// notif.innerHTML+=userMessage.message;
-
-// window.open('/notification.html')
-
-
-  
-   
-// console.log(JSON.stringify(userMessage));
     
 })
 
+
+
+
+
+const fetchBlogs=async()=>{
+
+    const blogData=await (await fetch('https://my-brand-backend.cyclic.app/api/getBlogs')).json();
+
+    
+   const blogs=blogData.data.posts;
+  
+   let blogDiv=document.querySelector('.blogs-main');
+   
+   blogs.map(blog=>{
+    
+    blogDiv.innerHTML+=`
+    
+    <div class=" blog  blog1">
+    <div class="blog-image">
+        <img src=${blog.blogImage}  alt="">
+
+    </div>
+
+    <div class="blog-content">
+
+        <div class="blog-title">
+            <a href="blog.html">${blog.blogTitle}</a>
+        </div>
+        <br>
+        <div class="blog-author">
+            ${blog.blogAuthor}
+        </div>
+         <br> 
+        <div class="blog-date">
+        September 23 2022
+        </div>
+        <br> <br>
+        <div class="blog-text">
+        ${blog.blogText}
+           
+        </div>
+        <span class="read-more">Read more...</span>
+        ${blog._id}
+
+        
+
+    </div>
+
+</div>
+
+ <br><br><br><br><br>
+    
+    `
+    document.querySelectorAll('.blog-text').forEach(text=>{
+        text.style.height="70px"
+        text.style.overflow="hidden";
+    })
+
+let readMore=document.querySelectorAll('.read-more').forEach(readmore=>{
+    readmore.style.cursor="pointer"
+    readmore.addEventListener('click',e=>{
+        
+       open('blog.html')
+
+        console.log(e.target.parentNode);
+
+        blogDiv.innerHTML=e.target.parentNode.parentNode.innerHTML;
+       
+        document.querySelector('.read-more').remove()
+        
+        
+        })
+
+})
+
+
+
+
+
+   })
+
+
+
+}
+
+fetchBlogs();
 

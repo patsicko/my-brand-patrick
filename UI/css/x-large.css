@@ -36,7 +36,7 @@
 
 
           .login-form input[type=text],.login-form input[type=password]{
-            width: 50%;
+            
             height: 50px;
             outline: none;
             border-radius: 5px;
