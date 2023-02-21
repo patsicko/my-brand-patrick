@@ -7,14 +7,17 @@ const blogContainer=document.querySelector('.blogs-main-admin');
 const form=document.querySelector('.admin-blog-form')
 
 
-const title=document.getElementById('title');
-const author=document.getElementById('author');
+let title=document.getElementById('title');
+let author=document.getElementById('author');
 let blogImage='';
 
-
+let blogTitle=document.querySelector('#title');
+let blogAuthor=document.querySelector('#author');
+let blogImg=document.querySelector('#blog-img');
+let text=document.querySelector('#textarea');
 
 const createButton=document.getElementById('create-blog');
-const textarea=document.getElementById('textarea')
+let textarea=document.getElementById('textarea')
 
 
 
@@ -62,6 +65,9 @@ const textarea=document.getElementById('textarea')
 
 
 
+
+
+
       
 const getBlogs = async()=>{
 
@@ -85,7 +91,7 @@ const getBlogs = async()=>{
            <tr>
             <td>${index+1}</td>
             <td>${blog.blogTitle}</td>
-            <td><i class="fa fa-pencil-square-o" aria-hidden="true"></i></td>
+            <td><i class="fa fa-pencil-square-o" aria-hidden="true" data-blogup-id=${blog._id}></i></td>
             <td><i class="fa fa-trash" aria-hidden="true" data-blog-id=${blog._id} ></i></td>
             </tr>
            
@@ -95,6 +101,9 @@ const getBlogs = async()=>{
         })
 
         deleteBlogById();
+        updateBlogById()
+
+
             
 
     });
@@ -102,6 +111,8 @@ const getBlogs = async()=>{
     
 
 }
+
+
 
 
 
@@ -119,6 +130,8 @@ document.querySelector('.allBlogs').addEventListener('click',e=>{
 
 
 getBlogs();
+
+
 
 
 })
@@ -163,29 +176,122 @@ const deleteBlogById=()=>{
         }
     
         deleteBlog(blogId);
-
-      
-
-        
     
        })  
     
-        
-     
-
     });
-
-
 
 }
 
 
 
 
-const blogTitle=document.querySelector('#title');
-const blogAuthor=document.querySelector('#author');
-const blogImg=document.querySelector('#blog-img');
-const text=document.querySelector('#textarea');
+
+const updateBlogById=()=>{
+
+
+
+    const updateBlogIcon =document.querySelectorAll('.fa-pencil-square-o');
+    
+
+    const updates=Array.from(updateBlogIcon);
+
+   
+
+    updates.forEach((upd) =>{
+       
+    
+       upd.addEventListener('click',e=>{
+        document.querySelector('.blogs-main-admin').innerHTML=
+        `
+        <form class="admin-blog-form">
+        <h1 class="create-blog">CREATE A BLOG</h1>
+
+        
+
+        <form-group><label for="">Blog title</label> &nbsp; &nbsp; &nbsp; &nbsp;  <input  type="text" name="title" placeholder="Blog title" id="title"></form-group> <br> <br>
+        <form-group><label for=""> Blog author</label>  &nbsp; <input type="text" name="author" placeholder="Blog author" id="author"></form-group> <br> <br>
+        <form-group><label for=""> Blog image</label>  &nbsp; <input type="file" id="blog-img" placeholder="upload image"  name="blog-img"></form-group> <br> <br>
+
+
+        <textarea name="" id="textarea" cols="30" rows="10" placeholder="#">
+            
+        </textarea>
+        <br> <br>
+        
+        <button type="submit" id="create-blog-btn">CREATE</button>
+
+    </form>
+        
+        `
+
+       console.log(e.target);
+
+        const blogId=e.target.dataset.blogupId;
+        console.log(blogId);
+        
+
+    const getBlogById=async(blogId)=>{
+   const response=await (await fetch(`https://my-brand-backend.cyclic.app/api/getBlog/${blogId}`)).json();
+
+   console.log(response.data.post);
+
+
+  document.querySelector('#title').value=response.data.post.blogTitle;
+  document.querySelector('#author').value=response.data.post.blogAuthor;
+//   document.querySelector('#blog-img').files[0]=response.data.post.blogImage;
+  document.querySelector('#textarea').innerHTML=response.data.post.blogText;
+    }
+
+    getBlogById(blogId);
+
+
+    const updateBlog =async(id)=>{
+        const formData= new FormData();
+
+formData.append('blogTitle',blogTitle.value);
+formData.append('blogAuthor',blogAuthor.value);
+formData.append('blogImage',blogImg.files[0]);
+formData.append('blogText',text.value);
+
+console.log(formData);
+          
+        const updatedBlog=await fetch(`https://my-brand-backend.cyclic.app/api/updateBlog/${id}`,
+        {method:'PUT',headers:{token:`Bearer ${token}`},body:formData});
+
+         console.log(updatedBlog.status);
+
+         if(updatedBlog.status==200){
+            getBlogs()
+         }
+
+        }
+
+        document.querySelector('form').addEventListener('submit',e=>{
+
+            e.preventDefault();
+            updateBlog(blogId);
+
+        })
+    
+        
+
+
+    
+       })  
+    
+    });
+
+}
+
+
+
+
+
+
+
+
+
 console.log(text)
 const createBlogButton=document.querySelector('#create-blog-btn');
 
@@ -231,7 +337,12 @@ const createBlog=async()=>{
 
     const response=await(await fetch('https://my-brand-backend.cyclic.app/api/createBlog',{method:'POST',headers:{token:`Bearer ${token}`},body:formData})).json()
     
-    console.log(response)
+    console.log(response);
+    if(response){
+        document.querySelector('form').reset()
+        document.querySelector('.created').innerHTML='Blog created successfully!'
+    }
+
 
 }
 
@@ -239,6 +350,11 @@ createBlog();
 
   
 })
+
+
+
+
+
 
 
 
@@ -282,7 +398,9 @@ allUsers.addEventListener("click",e=>{
 document.querySelector('.userTable').innerHTML='';
 document.querySelector('.blogTable').innerHTML='';
 document.querySelector('.admin-blog-form').innerHTML='';
-  
+
+
+
 
     getUsers()
 })
@@ -347,8 +465,39 @@ const deleteUserById=()=>{
 
 
 
+const getMessages=async()=>{
+
+const response=await (await fetch('https://my-brand-backend.cyclic.app/api/getMessages',{headers:{token:`Bearer ${token} `}})).json();
+console.log(response.data.posts);
+const data=response.data.posts;
+
+data.map((datum,index)=>{
+
+    document.querySelector('.messageTable').innerHTML+=`
+
+    <tr>
+    <td>${index+1}</td>
+    <td>${datum.names}</td>
+    <td>${datum.email}</td>
+    <td>${datum.message}</td>
+    <td><i class="fa fa-trash" aria-hidden="true"  data-user-id=${datum._id} ></i></td>
+     </tr>
+
+    `
+
+})
 
 
+
+
+
+}
+
+
+document.querySelector('.allMessages').addEventListener('click',e=>{
+    e.preventDefault();
+    getMessages()
+})
 
 
 
