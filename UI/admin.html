@@ -40,7 +40,11 @@
             
         }
        
+        .admin-right{
+          overflow-y: scroll;
+        }
 
+      
         </style>
  
 </head>
@@ -126,13 +130,7 @@
 
                     <div class="admin-right">
 
-                   
-
-                        
-                        <div class="blogs-main-admin">
-
-
-                              
+                       <div class="blogs-main-admin">
 
                                 <table>
                                     <h2>BLOGS</h2> <br>
@@ -175,17 +173,17 @@
                                 <br> <br><br>
 
 
-                                <table id="users">
+                                <table id="messages">
                                   <h2>MESSAGES</h2>
                                   <br>
                                   <tr>
                                     <th>MESSAGE No</th>
                                     <th>NAMES</th>
-                                    <th>LAST NAME</th>
                                     <th>EMAIL</th>
+                                    <th>MESSAGE</th>
                                     <th>DELETE</th>
                                   </tr>
-                                  <tbody class="userTable">
+                                  <tbody class="messageTable">
                                    
                                   </tbody>
 
@@ -210,7 +208,8 @@
                                     </textarea>
                                     <br> <br>
                                     
-                                    <button type="submit" id="create-blog-btn">CREATE</button>
+                                    <button type="submit" id="create-blog-btn">CREATE</button> <br> <br>
+                                    <div class="created"></div>
                             
                                 </form>
 

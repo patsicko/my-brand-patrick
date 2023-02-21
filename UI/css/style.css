@@ -300,7 +300,7 @@ h1{
 
 
 .contact-card{
-    height: 700px;
+    height: 750px;
     width: 80vw;
     margin: auto;
     background-color: rgba(205, 216, 137,0.25);
@@ -308,6 +308,9 @@ h1{
     border-radius: 10px;
 
     
+}
+.contact-card button{
+    margin-top: 10px;
 }
 
 textarea{
@@ -549,7 +552,7 @@ span{
 #names-error,#email-error,#text-error{
     margin-left: 70px;
     color: red;
-    visibility: hidden;
+   
     font-size: 1rem;
 }
 

@@ -32,7 +32,7 @@ const contactForm=document.querySelector('#contact-form');
 const namesError=document.getElementById('names-error');
 const emailError=document.getElementById('email-error');
 const textError=document.getElementById('text-error');
-const mytextarea=document.getElementById('mytextarea');
+const textarea=document.getElementById('textarea');
 // var text = tinymce.get('mytextarea').save();
 // console.log(text);
 
@@ -65,8 +65,8 @@ if(contactEmail.value.trim()==''){
     emailError.style.visibility='hidden'; 
 }
 
-if(mytextarea.value.trim().length<30){
-    textError.innerText=` You typed ${mytextarea.value.trim().length} characters. The message must be at least 30 characters `;
+if(textarea.value.trim().length<2){
+    textError.innerText=` You typed ${textarea.value.trim().length} characters. The message must be at least 2 characters `;
     textError.style.visibility=`visible`
 }else{
     textError.innerText='';
@@ -79,28 +79,30 @@ if(mytextarea.value.trim().length<30){
 
 
 
-contactForm.addEventListener('submit',e=>{
-    e.preventDefault()
-    validateInputs();
+// contactForm.addEventListener('submit',e=>{
+//     e.preventDefault()
+//     validateInputs();
    
- var temp = tinymce.get('mytextarea').save();
+//  var temp = tinymce.get('mytextarea').save();
 
-const userMessage={
-contactNames:contactNames.value,
-contactEmail:contactEmail.value,
-message:temp
+// const userMessage={
+// contactNames:contactNames.value,
+// contactEmail:contactEmail.value,
+// message:temp
 
-}
+// }
 
-console.log(userMessage)
+// console.log(userMessage)
 
-localStorage.setItem('userMessage',JSON.stringify(userMessage));
+// localStorage.setItem('userMessage',JSON.stringify(userMessage));
 
 
 
 
     
-})
+// }
+
+// )
 
 
 
@@ -187,5 +189,6 @@ let readMore=document.querySelectorAll('.read-more').forEach(readmore=>{
 
 }
 
-fetchBlogs();
+// fetchBlogs();
+
 
